@@ -172,6 +172,3 @@ Occasional network-related instability may occur due to third-party hosting beha
 
 ---
 
-## Author
-
-Manuel Adames
