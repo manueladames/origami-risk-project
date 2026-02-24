@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
 const USERNAME = process.env.APP_USERNAME;
@@ -16,25 +16,18 @@ test.describe('Login', () => {
     await loginPage.goto();
   });
 
-  test('Test Case 1: Successful login', async ({ page }) => {
+  test('Test Case 1: Successful login', async () => {
     await loginPage.login(USERNAME, PASSWORD);
-
-    await expect(page).toHaveURL(/\/secure$/);
-    await loginPage.expectFlashToContain('You logged into a secure area!');
-    await expect(page.getByRole('link', { name: /logout/i })).toBeVisible();
+    await loginPage.expectSuccessfulLogin();
   });
 
   test('Test Case 2: Login with invalid username', async () => {
     await loginPage.login('invalidUser', PASSWORD);
-
-    await loginPage.expectStillOnLogin();
-    await loginPage.expectFlashToContain('Your username is invalid!');
+    await loginPage.expectInvalidUsernameError();
   });
 
   test('Test Case 3: Login with invalid password', async () => {
     await loginPage.login(USERNAME, 'WrongPassword!');
-
-    await loginPage.expectStillOnLogin();
-    await loginPage.expectFlashToContain('Your password is invalid!');
+    await loginPage.expectInvalidPasswordError();
   });
 });

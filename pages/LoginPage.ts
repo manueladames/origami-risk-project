@@ -6,6 +6,7 @@ export class LoginPage {
   readonly password: Locator;
   readonly loginButton: Locator;
   readonly flashMessage: Locator;
+  readonly logoutLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -13,6 +14,7 @@ export class LoginPage {
     this.password = page.locator('#password');
     this.loginButton = page.locator('button[type="submit"]');
     this.flashMessage = page.locator('#flash');
+    this.logoutLink = page.getByRole('link', { name: /logout/i });
   }
 
   async goto() {
@@ -27,12 +29,33 @@ export class LoginPage {
     await this.loginButton.click({ timeout: 15000 });
   }
 
+
+  async expectOnLoginPage() {
+    await expect(this.page).toHaveURL(/\/login$/);
+  }
+
+  async expectOnSecurePage() {
+    await expect(this.page).toHaveURL(/\/secure$/);
+  }
+
   async expectFlashToContain(text: string) {
     await expect(this.flashMessage).toBeVisible();
     await expect(this.flashMessage).toContainText(text);
   }
 
-  async expectStillOnLogin() {
-    await expect(this.page).toHaveURL(/\/login$/);
+  async expectSuccessfulLogin() {
+    await this.expectOnSecurePage();
+    await this.expectFlashToContain('You logged into a secure area!');
+    await expect(this.logoutLink).toBeVisible();
+  }
+
+  async expectInvalidUsernameError() {
+    await this.expectOnLoginPage();
+    await this.expectFlashToContain('Your username is invalid!');
+  }
+
+  async expectInvalidPasswordError() {
+    await this.expectOnLoginPage();
+    await this.expectFlashToContain('Your password is invalid!');
   }
 }
