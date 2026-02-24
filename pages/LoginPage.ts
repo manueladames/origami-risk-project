@@ -23,7 +23,6 @@ export class LoginPage {
     await this.username.fill(user);
     await this.password.fill(pass);
 
-    // More stable across browsers than a plain click
     await this.loginButton.scrollIntoViewIfNeeded();
     await this.loginButton.click({ timeout: 15000 });
   }
