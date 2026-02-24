@@ -160,7 +160,6 @@ npx playwright show-report
 
 - Page Object Model used to separate page behavior from test assertions.
 - Environment variables used to avoid hardcoding credentials.
-- Tests run against Chromium by default for stability.
 - Navigation waits for `domcontentloaded` to reduce flakiness from the external demo site.
 - Workers limited for stability since the target application is publicly hosted.
 
