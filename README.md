@@ -3,7 +3,7 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project contains automated end-to-end tests for the login functionality of:
 
@@ -13,7 +13,7 @@ The tests are implemented using **Playwright with TypeScript** and follow the **
 
 ---
 
-## ✅ Test Coverage
+## Test Coverage
 
 ### Positive Test Case
 
@@ -40,7 +40,7 @@ The tests are implemented using **Playwright with TypeScript** and follow the **
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Playwright
 - TypeScript
@@ -50,7 +50,7 @@ The tests are implemented using **Playwright with TypeScript** and follow the **
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 .
@@ -67,7 +67,7 @@ The tests are implemented using **Playwright with TypeScript** and follow the **
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 Make sure you have installed:
 
@@ -76,9 +76,9 @@ Make sure you have installed:
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/manueladames/origami-risk-project.git
@@ -87,7 +87,7 @@ cd origami-risk-project
 
 ---
 
-### 2️⃣ Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install
@@ -97,7 +97,7 @@ This installs all required dependencies including Playwright and dotenv.
 
 ---
 
-### 3️⃣ Install Playwright Browsers (First Time Only)
+### Install Playwright Browsers (First Time Only)
 
 ```bash
 npx playwright install
@@ -105,7 +105,7 @@ npx playwright install
 
 ---
 
-### 4️⃣ Create Environment File
+### Create Environment File
 
 Create a file named `.env` in the project root and add:
 
@@ -120,7 +120,7 @@ Use `.env.example` as a template if needed.
 
 ---
 
-## ▶️ Running the Tests
+## Running the Tests
 
 ### Run Tests (Chromium – Default & Stable)
 
@@ -156,7 +156,7 @@ npx playwright show-report
 
 ---
 
-## 🧠 Design Decisions
+## Design Decisions
 
 - Page Object Model used to separate page behavior from test assertions.
 - Environment variables used to avoid hardcoding credentials.
@@ -165,13 +165,13 @@ npx playwright show-report
 
 ---
 
-## ⚠️ Notes
+## Notes
 
 This project tests a publicly hosted demo application.  
 Occasional network-related instability may occur due to third-party hosting behavior.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 Manuel Adames
